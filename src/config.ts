@@ -33,6 +33,37 @@ Do NOT use for hashing -- use crypto_generate_hash instead. Do NOT use for JWT d
         },
         required: ["data"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string",
+              "description": "Encoded or decoded result"
+            },
+            "urlSafe": {
+              "type": "string",
+              "description": "URL-safe base64 variant (encode only)"
+            },
+            "action": {
+              "type": "string",
+              "description": "Action performed (encode or decode)"
+            },
+            "inputLength": {
+              "type": "number",
+              "description": "Input string length"
+            },
+            "outputLength": {
+              "type": "number",
+              "description": "Output string length"
+            }
+          },
+          "required": [
+            "result",
+            "action",
+            "inputLength",
+            "outputLength"
+          ]
+        },
     },
   ],
 };
